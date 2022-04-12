@@ -1,0 +1,116 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main{
+  width: 100vw;
+  height: 100vh;
+  background-color: darkviolet;
+  color: aliceblue;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 2rem;
+}
+
+.password-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  height: max-content;
+}
+
+.input{
+  border: none;
+  border-radius: 1rem;
+  min-width: max-content;
+  outline: 2px solid #aaa;
+  background-color: antiquewhite;
+  color: #444;
+  padding: .25em .5em;
+  font-size: large;
+  font-weight: normal;
+  box-shadow: inset 1px 2px 2px 0px #666;
+  transition: outline 200ms ease-in-out;
+}
+
+.input:hover{
+  outline-color: #666;
+}
+
+.input:focus{
+  background-color: aliceblue;
+}
+
+.btn{
+  background-color: transparent;
+  border: 2px solid antiquewhite;
+  border-radius: 1rem;
+  padding: .25em .5em;
+  font-size: large;
+  color: antiquewhite;
+  box-shadow: 1px 2px 2px 0px #aaa;
+  cursor: pointer;
+  transition: transform 200ms ease-in-out, box-shadow 200ms ease-in-out;
+}
+
+.btn:hover{
+  transform: scale(1.025);
+}
+
+.btn:active{
+  box-shadow: none;
+  transform: scale(1);
+  color: #aaa;
+}
+
+.reasons{
+  color: antiquewhite;
+  width: 100%;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+  padding: 1rem;
+  font-weight: normal;
+}
+
+.strength-meter{
+  --bar-height: 2rem;
+  --bar-border-width: 4px;
+  --padding: .5rem;
+  --meter: 1;
+  margin: 1rem;
+  width: 60%;
+  height: var(--bar-height);
+  background-color: transparent;
+  border: var(--bar-border-width) solid beige;
+  border-radius: 1rem;
+  box-shadow: 1px 2px 4px 0px #666;
+  position: relative;
+  overflow: hidden;
+}
+
+.strength-meter::before{
+  content: attr(data-strength);
+  height: 100%;
+  width: calc(var(--meter) * 1%);
+  background-color: burlywood;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  border-radius: 1rem;
+  box-shadow: inset 0px 2px 2px 0px #ddd, inset 0px -2px 3px 0 #666;
+  transition: width 100ms ease-in;
+}
